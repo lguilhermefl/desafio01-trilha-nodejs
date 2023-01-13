@@ -88,7 +88,7 @@ app.put("/todos/:id", checksExistsTodo, (request, response) => {
   todo.title = title;
   todo.deadline = new Date(deadline);
 
-  response.sendStatus(201);
+  response.status(201).send(todo);
 });
 
 app.patch("/todos/:id/done", checksExistsTodo, (request, response) => {
@@ -96,7 +96,7 @@ app.patch("/todos/:id/done", checksExistsTodo, (request, response) => {
 
   todo.done = true;
 
-  response.sendStatus(201);
+  response.status(201).send(todo);
 });
 
 app.delete("/todos/:id", checksExistsTodo, (request, response) => {
